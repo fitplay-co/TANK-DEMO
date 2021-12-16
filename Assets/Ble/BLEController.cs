@@ -23,11 +23,15 @@ public class BLEController : MonoBehaviour
     private BLEAdaperComponent bleAdaper;
     private BleSid02ControllerMessage bleSid02ControllerMessage;
 
-    public int gear1;
-    public int gear2;
-    public int resistence;
-    public uint vibsel;
+    private int gear1;
+    private int gear2;
+    private int resistence;
+    private uint vibsel;
     private Text _arg1, _arg2, _arg3, _arg4;
+
+    public float angle;
+    public float fBrake;
+    public float cadence;
     
     void Start()
     {
@@ -94,6 +98,10 @@ public class BLEController : MonoBehaviour
     {
         _testLog.text = ("message received");
         bleSid02ControllerMessage = (BleSid02ControllerMessage)bleSid02;
+        angle = bleSid02ControllerMessage.Angle;
+        cadence = bleSid02ControllerMessage.RealtimeCadence;
+        fBrake = bleSid02ControllerMessage.FBrake;
+
         _angle.text = bleSid02ControllerMessage.Angle.ToString();
         _speed.text = bleSid02ControllerMessage.Speed.ToString();
         _cadence.text = bleSid02ControllerMessage.RealtimeCadence.ToString();
