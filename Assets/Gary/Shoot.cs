@@ -20,7 +20,8 @@ public class Shoot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //按下一个按键
-        if (Input.GetKeyDown(key))
+        //if (Input.GetKeyDown(key))
+        if (GameObject.Find("BtManager").GetComponent<BLEController>().fBrake!=0)
         {
             GameObject go = Instantiate(shell,pos.position,pos.rotation);
             go.GetComponent<Rigidbody>().velocity = go.transform.forward * speed;
