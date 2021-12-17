@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour {
         //获得玩家的键盘输入
         float tmpv = GameObject.Find("BtManager").GetComponent<BLEController>().cadence;
         float h = GameObject.Find("BtManager").GetComponent<BLEController>().angle;
+        if (tmpv >= 50) tmpv = 50;
         float v = (tmpv <= 20) ? 0 : tmpv / 50;
         //float v = Input.GetAxis("Vertical" + player);
         //float h = Input.GetAxis("Horizontal" + player);

@@ -21,7 +21,7 @@ public class Shoot : MonoBehaviour {
 	void Update () {
         //按下一个按键
         //if (Input.GetKeyDown(key))
-        if (GameObject.Find("BtManager").GetComponent<BLEController>().fBrake!=0)
+        if (GameObject.Find("BtManager").GetComponent<BLEController>().fBrake == 1)
         {
             GameObject go = Instantiate(shell,pos.position,pos.rotation);
             go.GetComponent<Rigidbody>().velocity = go.transform.forward * speed;
